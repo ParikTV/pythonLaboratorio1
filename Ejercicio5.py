@@ -1,5 +1,4 @@
 import math
-
 class CalculadoraPerimetros:
     def calcular_perimetro(self, forma, *args):
         if forma == "rectangulo":

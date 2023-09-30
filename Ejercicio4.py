@@ -7,8 +7,8 @@ def estado_alumno(promedio):
     else:
         return "Sustitución"
 
-
-promedio_alumno = 75
+def sacar_promedio(nota 1, nota2, nota3):
+    promedio = (nota1 + nota2 + nota3) / 3
 
 resultado = estado_alumno(promedio_alumno)
 print(f"El estado del alumno es: {resultado}")
