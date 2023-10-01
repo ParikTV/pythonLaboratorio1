@@ -1,15 +1,15 @@
+def calcular_promedio_general():
+    cantidad_empleados = int(input("Digite la cantidad de empleados: "))
+    salarios = []
 
-def calcular_promedio_salarios(empleados):
-    if not empleados:
-        return 0
+    for i in range(cantidad_empleados):
+        salario = float(input(f"Digite el salario del empleado {i + 1}: "))
+        salarios.append(salario)
 
-    total_salarios = sum(empleados)
-    promedio = total_salarios / len(empleados)
-    return promedio
-
+    promedios_general = sum(salarios) / cantidad_empleados
+    return promedios_general
 
 
-salarios_empleados = [30000, 35000, 40000]
-
-promedio_general = calcular_promedio_salarios(salarios_empleados)
-print(f"El promedio general de salarios de los empleados es: {promedio_general}")
+if __name__ == '__main__':
+    promedio_general = calcular_promedio_general()
+    print("El promedio general de los empleados es:", promedio_general)

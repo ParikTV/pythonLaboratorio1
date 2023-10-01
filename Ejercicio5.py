@@ -1,44 +1,38 @@
 import math
-class CalculadoraPerimetros:
-    def calcular_perimetro(self, forma, *args):
-        if forma == "rectangulo":
-            if len(args) == 2:
-                a, b = args
-                return 2 * (a + b)
-            else:
-                raise ValueError("Se requieren dos lados para calcular el perímetro de un rectángulo.")
-        elif forma == "triangulo":
-            if len(args) == 1:
-                lado = args[0]
-                return 3 * lado
-            elif len(args) == 2:
-                lado1, lado2 = args
-                return 2 * lado1 + lado2
-            else:
-                raise ValueError("Se requieren uno o dos lados para calcular el perímetro de un triángulo.")
-        elif forma == "circulo":
-            if len(args) == 1:
-                radio = args[0]
-                return 2 * math.pi * radio
-            else:
-                raise ValueError("Se requiere el radio para calcular el perímetro de un círculo.")
-        elif forma == "poligono_regular":
-            if len(args) == 2:
-                numero_lados, longitud_lado = args
-                return numero_lados * longitud_lado
-            else:
-                raise ValueError("Se requieren el número de lados y la longitud del lado para calcular el perímetro de un polígono regular.")
-        else:
-            raise ValueError("Forma geométrica no reconocida.")
 
-# Ejemplo de uso
-calculadora = CalculadoraPerimetros()
-perimetro_rectangulo = calculadora.calcular_perimetro("rectangulo", 4, 6)
-perimetro_triangulo = calculadora.calcular_perimetro("triangulo", 5)
-perimetro_circulo = calculadora.calcular_perimetro("circulo", 3)
-perimetro_poligono = calculadora.calcular_perimetro("poligono_regular", 5, 4)
 
-print(f"Perímetro del rectángulo: {perimetro_rectangulo}")
-print(f"Perímetro del triángulo: {perimetro_triangulo}")
-print(f"Perímetro del círculo: {perimetro_circulo}")
-print(f"Perímetro del polígono regular: {perimetro_poligono}")
+class FigurasGeometricas:
+
+    @staticmethod
+    def rectangulo(lado1, lado2):
+        return 2 * (lado1 + lado2)
+
+    @staticmethod
+    def triangulo_equilatero(lado):
+        return 3 * lado
+
+    @staticmethod
+    def triangulo_isosceles(lado1, lado2):
+        return 2 * lado1 + lado2
+
+    @staticmethod
+    def circulo(radio):
+        return 2 * math.pi * radio
+
+    @staticmethod
+    def poligono_regular(lados, longitud_lado):
+        return lados * longitud_lado
+
+
+if __name__ == '__main__':
+    rectangulo = FigurasGeometricas.rectangulo(4, 6)
+    triangulo_equilatero = FigurasGeometricas.triangulo_equilatero(5)
+    triangulo_isosceles = FigurasGeometricas.triangulo_isosceles(3, 4)
+    circulo = FigurasGeometricas.circulo(3)
+    poligono_regular = FigurasGeometricas.poligono_regular(5, 4)
+
+    print("Perímetro del rectángulo:", rectangulo)
+    print("Perímetro del triángulo equilátero:", triangulo_equilatero)
+    print("Perímetro del triángulo isósceles:", triangulo_isosceles)
+    print("Perímetro del círculo:", circulo)
+    print("Perímetro del polígono regular:", poligono_regular)
